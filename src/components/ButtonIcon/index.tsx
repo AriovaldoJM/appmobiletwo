@@ -14,7 +14,7 @@ export function ButtonIcon({ icon, type = 'PRIMARY', ...rest }: Props) {
     return (
         <Container  {...rest}>
             <Icon 
-                name="add" 
+                name={icon}
                 type={type}
             />
         </Container>

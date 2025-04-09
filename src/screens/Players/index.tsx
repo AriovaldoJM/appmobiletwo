@@ -5,7 +5,11 @@ import { Input } from "@components/Input";
 import { Filter } from "@components/Filter";
 import { Header } from "@components/Hearder";
 import { ButtonIcon } from "@components/ButtonIcon";
+import { Button } from "@components/Button";
 import { HighLight } from "@components/HighLight";
+import { PlayerCard } from "@/src/components/PlayerCard";
+import { ListEmpty } from "@/src/components/ListEmpyt";
+
 
 import { Container, Form, HeaderList, NumbersOfPlayers } from "./styles";
 
@@ -51,6 +55,25 @@ export function Players() {
                     {players.length}
                 </NumbersOfPlayers>
             </HeaderList>
+            <FlatList
+                data={players}
+                keyExtractor={item => item}
+                renderItem={({ item }) => (
+                    <PlayerCard 
+                        name={item}
+                        onRemove={() => {}}  
+                    />
+                )}
+                ListEmptyComponent={<ListEmpty 
+                    message="Não há pessoas nesse time."
+                />}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={[{ paddingBottom: 100 }, players.length === 0 && { flex: 1 }]}
+            />
+            <Button 
+                title="Remover turma"
+                type="SECONDARY"
+            />
         </Container>
     )
 }

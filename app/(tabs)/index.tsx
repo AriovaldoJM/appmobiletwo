@@ -4,7 +4,7 @@ import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/
 import { Loading } from '@/src/components/Loading';
 
 import theme from '../../src/theme';
-import { Players } from '@screens/Players';
+import { Groups } from '@screens/Groups';
 
 export default function Home() {
   const [fontsLoaded] = useFonts({
@@ -17,7 +17,7 @@ export default function Home() {
         barStyle="light-content"
         backgroundColor="transparent" 
       />
-      { fontsLoaded ? <Players/> : <Loading /> }
+      { fontsLoaded ? <Groups/> : <Loading /> }
     </ThemeProvider>
   );
 }
